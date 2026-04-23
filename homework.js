@@ -231,14 +231,32 @@ async function clearCart() {
 
 1. HTTP 狀態碼的分類（1xx, 2xx, 3xx, 4xx, 5xx 各代表什麼）
    答：
-
+   資訊回應（100——199）
+   成功回應（200——299）
+   重新導向訊息（300——399）
+   用戶端錯誤回應（400——499）(例如：404 Not Found)
+   伺服器錯誤回應（500——599）(例如 503 Service Unavailable)
 2. GET、POST、PATCH、PUT、DELETE 的差異
    答：
+   GET：用於請求資料，取伺服器資料使用，不會修改伺服器資料
+   POST：用於create新資源，會修改伺服器資料
+   PATCH：用於部分更新資源，只修改指定的欄位(部份更新)
+   PUT：用於完全替換資源，會修改伺服器資料(完整更新)
+   DELETE：用於刪除資源，會修改伺服器資料
 
 3. 什麼是 RESTful API？
    答：
-
-
+   RESTfu（Representational State Transfer） API 是一種軟體架構風格，
+   具有輕量、無狀態（Stateless）和平台無關等特性，是現代網路服務溝通的主流標準。   
+   關鍵特性與組成：
+   	資源 (Resources)： 所有內容皆視為資源，用唯一的 URI 識別 (例如 /users, /posts/1)。
+   	無狀態 (Stateless)： 每個請求都包含所有必要資訊，伺服器不會保留客戶端狀態。
+   	統一接口 (Uniform Interface)： 使用標準 HTTP 方法來操作資源，並使用標準的狀態碼來表示操作結果。
+   	可擴展性 (Scalability)： 由於無狀態特性，RESTful API 易於水平擴展。
+   它使用標準的 HTTP 方法（GET、POST、PATCH、PUT、DELETE）來操作資源，並通過 URL 來識別資源。 	
+   與一般 API 比較範例：
+	非 RESTful：GET /getAllUsers
+	RESTful：GET /users	
 */
 
 // ========================================
