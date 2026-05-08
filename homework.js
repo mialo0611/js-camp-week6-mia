@@ -110,7 +110,7 @@ async function addToCart(productId, quantity) {
 	// 3. 記得設定 headers: { 'Content-Type': 'application/json' }
 	// 4. body 要用 JSON.stringify() 轉換
 	try {	
-		const respnse = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts`, 
+		const response = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts`, 
 		{
 			method: "POST",
 			headers: {
@@ -124,11 +124,11 @@ async function addToCart(productId, quantity) {
 			})
 		}
 		);
-		if (!respnse.ok) {
-			const errData = await respnse.json();
-			throw new Error(`HTTP error! status: ${respnse.status}, message: ${errData.message}`);
+		if (!response.ok) {
+			const errData = await response.json();
+			throw new Error(`HTTP error! status: ${response.status}, message: ${errData.message}`);
 		}
-		const data = await respnse.json();
+		const data = await response.json();
 		return data;
 	}catch (error) {
 		return { success: false, error: error.message };
@@ -146,7 +146,7 @@ async function updateCartItem(cartId, quantity) {
 	// 1. 發送 PATCH 請求
 	// 2. body 格式：{ data: { id: "購物車ID", quantity: 數量 } }
 	try {	
-		const respnse = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts`, 
+		const response = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts`, 
 		{
 			method: "PATCH",
 			headers: {
@@ -160,11 +160,11 @@ async function updateCartItem(cartId, quantity) {
 			})
 		}
 		);
-		if (!respnse.ok) {
-			const errData = await respnse.json();
-			throw new Error(`HTTP error! status: ${respnse.status}, message: ${errData.message}`);
+		if (!response.ok) {
+			const errData = await response.json();
+			throw new Error(`HTTP error! status: ${response.status}, message: ${errData.message}`);
 		}
-		const data = await respnse.json();
+		const data = await response.json();
 		return data;
 	}catch (error) {
 		return { success: false, error: error.message };
@@ -180,16 +180,16 @@ async function removeCartItem(cartId) {
 	// 請實作此函式
 	// 提示：發送 DELETE 請求到 /carts/{id}
 	try {	
-		const respnse = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts/${cartId}`, 
+		const response = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts/${cartId}`, 
 			{
 				method: "DELETE",			
 			}
 		);
-		if (!respnse.ok) {
-			const errData = await respnse.json();
-			throw new Error(`HTTP error! status: ${respnse.status}, message: ${errData.message}`);
+		if (!response.ok) {
+			const errData = await response.json();
+			throw new Error(`HTTP error! status: ${response.status}, message: ${errData.message}`);
 		}
-		const data = await respnse.json();
+		const data = await response.json();
 		return data;
 	}catch (error) {
 		return { success: false, error: error.message };
@@ -206,16 +206,16 @@ async function clearCart() {
 	// 請實作此函式
 	// 提示：發送 DELETE 請求到 /carts/{id}
 	try {	
-		const respnse = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts/`, 
+		const response = await fetch(`${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts/`, 
 			{
 				method: "DELETE",			
 			}
 		);
-		if (!respnse.ok) {
-			const errData = await respnse.json();
-			throw new Error(`HTTP error! status: ${respnse.status}, message: ${errData.message}`);
+		if (!response.ok) {
+			const errData = await response.json();
+			throw new Error(`HTTP error! status: ${response.status}, message: ${errData.message}`);
 		}
-		const data = await respnse.json();
+		const data = await response.json();
 		return data;
 	}catch (error) {
 		return { success: false, error: error.message };
